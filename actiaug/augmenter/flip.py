@@ -2,7 +2,7 @@ from typing import Optional, Tuple
 
 import numpy as np
 
-from tsaug._augmenter.base import Augmenter, _default_seed
+from .base import Augmenter, _default_seed
 
 
 class Flip(Augmenter):
