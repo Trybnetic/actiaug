@@ -18,7 +18,7 @@ classifiers = ['Development Status :: 5 - Production/Stable',
                'Topic :: Scientific/Engineering :: Information Analysis',]
 
 [tool.poetry.dependencies]
-python = "^3.5"
+python = "^3.8"
 numpy = "^1.23.5"
 scipy = "^1.9.3"
 
