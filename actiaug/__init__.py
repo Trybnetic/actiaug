@@ -22,3 +22,4 @@ from .augmenter.quantize import Quantize
 from .augmenter.resize import Resize
 from .augmenter.reverse import Reverse
 from .augmenter.time_warp import TimeWarp
+from .augmenter.flip import Flip
