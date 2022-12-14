@@ -1,7 +1,7 @@
 import numpy as np
 import pytest
 
-from tsaug import (
+from actiaug import (
     AddNoise,
     Convolve,
     Crop,

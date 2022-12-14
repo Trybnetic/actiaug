@@ -198,7 +198,7 @@ class Quantize(Augmenter):
             n_levels = n_levels.flatten()
             X_aug = X.copy()
             X_aug = X.swapaxes(1, 2).reshape((N * C, T))
-            model = KMeans(n_clusters=2, n_jobs=-1, random_state=self.seed)
+            model = KMeans(n_clusters=2, random_state=self.seed)
             for i in range(len(X_aug)):
                 model.n_clusters = n_levels[i]
                 ind = model.fit_predict(X_aug[i].reshape(-1, 1))
