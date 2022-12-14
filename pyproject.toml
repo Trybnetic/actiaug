@@ -1,2 +1,46 @@
+[tool.poetry]
+name = "actiaug"
+version = "0.1.0"
+description = "A python package for accelerometer time-series augmentation"
+authors = ["Marc Weitz <marc.weitz@uit.no>",
+           "Arundo Analytics, Inc."]
+license = "Apache License 2.0"
+
+classifiers = ['Development Status :: 5 - Production/Stable',
+               'Environment :: Console',
+               'Intended Audience :: Science/Research',
+               'Operating System :: POSIX :: Linux',
+               'Operating System :: Unix',
+               'Operating System :: MacOS',
+               'Operating System :: Microsoft :: Windows',
+               'Topic :: Scientific/Engineering',
+               'Topic :: Scientific/Engineering :: Artificial Intelligence',
+               'Topic :: Scientific/Engineering :: Information Analysis',]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+numpy = "^1.23.5"
+scipy = "^1.9.3"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.2.0"
+coverage = "^6.5.0"
+pytest-cov = "^4.0.0"
+coveralls = "^3.3.1"
+mypy = "^0.991"
+scikit-learn = "^1.2.0"
+Sphinx = "^5.3.0"
+sphinx-rtd-theme = "^1.1.1"
+nbsphinx = "^0.8.10"
+python-dateutil = "^2.8.2"
+jupyter = "^1.0.0"
+librosa = "^0.9.2"
+black = "^22.12.0"
+isort = "^5.11.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
 [tool.black]
 line-length = 79
