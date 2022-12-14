@@ -1,9 +1,0 @@
-[report]
-show_missing = True
-omit = src/tsaug/visualization/*
-exclude_lines =
-    raise
-    pass
-    @property
-    @abstractmethod
-    @overload
