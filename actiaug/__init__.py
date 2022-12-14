@@ -12,13 +12,13 @@ See https://tsaug.readthedocs.io for complete documentation.
 
 __version__ = "0.2.1"
 
-from ._augmenter.add_noise import AddNoise
-from ._augmenter.convolve import Convolve
-from ._augmenter.crop import Crop
-from ._augmenter.drift import Drift
-from ._augmenter.dropout import Dropout
-from ._augmenter.pool import Pool
-from ._augmenter.quantize import Quantize
-from ._augmenter.resize import Resize
-from ._augmenter.reverse import Reverse
-from ._augmenter.time_warp import TimeWarp
+from .augmenter.add_noise import AddNoise
+from .augmenter.convolve import Convolve
+from .augmenter.crop import Crop
+from .augmenter.drift import Drift
+from .augmenter.dropout import Dropout
+from .augmenter.pool import Pool
+from .augmenter.quantize import Quantize
+from .augmenter.resize import Resize
+from .augmenter.reverse import Reverse
+from .augmenter.time_warp import TimeWarp

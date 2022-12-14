@@ -3,10 +3,10 @@ from typing import Callable, List, Optional, Tuple, Union
 import numpy as np
 from scipy.interpolate import CubicSpline
 
-from .base import _Augmenter, _default_seed
+from .base import Augmenter, _default_seed
 
 
-class Drift(_Augmenter):
+class Drift(Augmenter):
     """
     Drift the value of time series.
 

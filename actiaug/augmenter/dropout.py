@@ -2,10 +2,10 @@ from typing import List, Optional, Tuple, Union
 
 import numpy as np
 
-from .base import _Augmenter, _default_seed
+from .base import Augmenter, _default_seed
 
 
-class Dropout(_Augmenter):
+class Dropout(Augmenter):
     """
     Dropout values of some random time points in time series.
 

@@ -2,10 +2,10 @@ from typing import Optional, Tuple
 
 import numpy as np
 
-from .base import _Augmenter, _default_seed
+from .base import Augmenter, _default_seed
 
 
-class Reverse(_Augmenter):
+class Reverse(Augmenter):
     """
     Reverse the time line of series.
 

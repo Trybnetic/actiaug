@@ -2,10 +2,10 @@ from typing import List, Optional, Tuple, Union
 
 import numpy as np
 
-from .base import _Augmenter, _default_seed
+from .base import Augmenter, _default_seed
 
 
-class Pool(_Augmenter):
+class Pool(Augmenter):
     """
     Reduce the temporal resolution without changing the length.
 

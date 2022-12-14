@@ -2,10 +2,10 @@ from typing import Callable, List, Optional, Tuple, Union
 
 import numpy as np
 
-from .base import _Augmenter, _default_seed
+from .base import Augmenter, _default_seed
 
 
-class AddNoise(_Augmenter):
+class AddNoise(Augmenter):
     """
     Add random noise to time series.
 

@@ -4,10 +4,10 @@ import numpy as np
 from scipy.ndimage.filters import convolve1d
 from scipy.signal import get_window
 
-from .base import _Augmenter, _default_seed
+from .base import Augmenter, _default_seed
 
 
-class Convolve(_Augmenter):
+class Convolve(Augmenter):
     """
     Convolve time series with a kernel window.
 

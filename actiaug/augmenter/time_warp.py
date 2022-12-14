@@ -3,10 +3,10 @@ from typing import List, Optional, Tuple, Union
 import numpy as np
 from scipy.interpolate import PchipInterpolator, interp1d
 
-from .base import _Augmenter, _default_seed
+from .base import Augmenter, _default_seed
 
 
-class TimeWarp(_Augmenter):
+class TimeWarp(Augmenter):
     """
     Random time warping.
 

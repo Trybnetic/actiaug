@@ -2,10 +2,10 @@ from typing import Optional, Tuple
 
 import numpy as np
 
-from .base import _Augmenter, _default_seed
+from .base import Augmenter, _default_seed
 
 
-class Resize(_Augmenter):
+class Resize(Augmenter):
     """
     Change the temporal resolution of time series.
 

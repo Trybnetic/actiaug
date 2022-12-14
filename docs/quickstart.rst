@@ -30,7 +30,7 @@ Augment a batch of multivariate time series
 .. code-block:: python
 
     >>> from tsaug import TimeWarp, Crop, Quantize, Drift, Reverse
-    >>> my_augmenter = (
+    >>> myaugmenter = (
     ...     TimeWarp() * 5  # random time warping 5 times in parallel
     ...     + Crop(size=300)  # random crop subsequences with length 300
     ...     + Quantize(n_levels=[10, 20, 30])  # random quantize to 10-, 20-, or 30- level sets
@@ -42,7 +42,7 @@ Augment a batch of multivariate time series
 
 .. code-block:: python
 
-    >>> X_aug, Y_aug = my_augmenter.augment(X, Y)
+    >>> X_aug, Y_aug = myaugmenter.augment(X, Y)
     >>> plot(X_aug, Y_aug)
 
 .. image:: _static/image/augmented.png
@@ -79,7 +79,7 @@ Augment a 2-channel audio sequence
 .. code-block:: python
 
     >>> from tsaug import Crop, AddNoise, Dropout
-    >>> my_augmenter = (
+    >>> myaugmenter = (
     ...     Crop(size=samplerate * 10) * 5  # random crop subsequences of 10 seconds
     ...     + AddNoise(scale=(0.01, 0.05)) @ 0.5  # with 50% probability, add random noise up to 1% - 5%
     ...     + Dropout(
@@ -93,7 +93,7 @@ Augment a 2-channel audio sequence
 
 .. code-block:: python
 
-    >>> beethoven_aug = my_augmenter.augment(beethoven)
+    >>> beethoven_aug = myaugmenter.augment(beethoven)
     >>> for i in range(5):
     ...     plot(beethoven_aug[[i]])
     ...     Audio(beethoven_aug[i].reshape(-1, 2).T, rate=samplerate)

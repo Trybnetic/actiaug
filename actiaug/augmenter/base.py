@@ -7,7 +7,7 @@ import numpy as np
 from . import _default_seed
 
 
-class _Augmenter(ABC):
+class Augmenter(ABC):
     def __init__(
         self,
         repeats: int = 1,
@@ -270,11 +270,11 @@ class _Augmenter(ABC):
         """
         pass
 
-    def _copy(self) -> "_Augmenter":
+    def _copy(self) -> "Augmenter":
         "Return a copy of this augmenter."
         return deepcopy(self)
 
-    def __mul__(self, m: int) -> "_Augmenter":
+    def __mul__(self, m: int) -> "Augmenter":
         """
         Operator * creates an augmenter that is equivalent to running this
         augmenter for m times independently.
@@ -296,7 +296,7 @@ class _Augmenter(ABC):
         copy.repeats = copy.repeats * m
         return copy
 
-    def __matmul__(self, p: float) -> "_Augmenter":
+    def __matmul__(self, p: float) -> "Augmenter":
         """
         Operator @ creates an augmenter that is equivalent to running this
         augmenter with probability p.
@@ -319,8 +319,8 @@ class _Augmenter(ABC):
         return copy
 
     def __add__(
-        self, a: Union["_Augmenter", "_AugmenterPipe"]
-    ) -> "_AugmenterPipe":
+        self, a: Union["Augmenter", "AugmenterPipe"]
+    ) -> "AugmenterPipe":
         """
         Operator + connects this augmenter with another augmenter or an
         augmenter pipe to form a (new) augmenter pipe.
@@ -336,10 +336,10 @@ class _Augmenter(ABC):
             The output augmenter pipe.
 
         """
-        if isinstance(a, _Augmenter):
-            return _AugmenterPipe([self._copy(), a._copy()])
-        elif isinstance(a, _AugmenterPipe):
-            return _AugmenterPipe(
+        if isinstance(a, Augmenter):
+            return AugmenterPipe([self._copy(), a._copy()])
+        elif isinstance(a, AugmenterPipe):
+            return AugmenterPipe(
                 [self._copy()] + [augmenter._copy() for augmenter in a]
             )
         else:
@@ -352,12 +352,12 @@ class _Augmenter(ABC):
         return 1
 
 
-class _AugmenterPipe:
-    def __init__(self, pipe: List[_Augmenter]):
+class AugmenterPipe:
+    def __init__(self, pipe: List[Augmenter]):
         self._pipe = pipe
 
-    def __getitem__(self, ind: int) -> _Augmenter:
-        if isinstance(self._pipe.__getitem__(ind), _Augmenter):
+    def __getitem__(self, ind: int) -> Augmenter:
+        if isinstance(self._pipe.__getitem__(ind), Augmenter):
             return self._pipe.__getitem__(ind)
         else:
             raise NotImplementedError(
@@ -365,9 +365,9 @@ class _AugmenterPipe:
                 "supported yet."
             )
 
-    def __setitem__(self, ind: int, value: _Augmenter) -> None:
-        if isinstance(self._pipe.__getitem__(ind), _Augmenter) and isinstance(
-            value, _Augmenter
+    def __setitem__(self, ind: int, value: Augmenter) -> None:
+        if isinstance(self._pipe.__getitem__(ind), Augmenter) and isinstance(
+            value, Augmenter
         ):
             self._pipe.__setitem__(ind, value)
         else:
@@ -376,7 +376,7 @@ class _AugmenterPipe:
                 "supported yet."
             )
 
-    def __iter__(self) -> Iterator[_Augmenter]:
+    def __iter__(self) -> Iterator[Augmenter]:
         return self._pipe.__iter__()
 
     def __len__(self) -> int:
@@ -468,8 +468,8 @@ class _AugmenterPipe:
             return X_aug, Y_aug
 
     def __add__(
-        self, a: Union["_Augmenter", "_AugmenterPipe"]
-    ) -> "_AugmenterPipe":
+        self, a: Union["Augmenter", "AugmenterPipe"]
+    ) -> "AugmenterPipe":
         """
         Operator + connects this augmenter pipe with another augmenter or an
         augmenter pipe to form a new augmenter pipe.
@@ -486,12 +486,12 @@ class _AugmenterPipe:
             The output augmenter pipe.
 
         """
-        if isinstance(a, _Augmenter):
-            return _AugmenterPipe(
+        if isinstance(a, Augmenter):
+            return AugmenterPipe(
                 [augmenter._copy() for augmenter in self] + [a._copy()]
             )
-        elif isinstance(a, _AugmenterPipe):
-            return _AugmenterPipe(
+        elif isinstance(a, AugmenterPipe):
+            return AugmenterPipe(
                 [augmenter._copy() for augmenter in self]
                 + [augmenter._copy() for augmenter in a]
             )

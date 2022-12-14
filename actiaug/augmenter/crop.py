@@ -2,11 +2,11 @@ from typing import List, Optional, Tuple, Union
 
 import numpy as np
 
-from .base import _Augmenter, _default_seed
+from .base import Augmenter, _default_seed
 from .resize import Resize
 
 
-class Crop(_Augmenter):
+class Crop(Augmenter):
     """
     Crop random sub-sequences from time series.
 
