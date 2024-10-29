@@ -1,7 +1,7 @@
 from typing import List, Optional, Tuple, Union
 
 import numpy as np
-from scipy.ndimage.filters import convolve1d
+from scipy.ndimage import convolve1d
 from scipy.signal import get_window
 
 from .base import Augmenter, _default_seed

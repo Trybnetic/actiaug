@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "actiaug"
-version = "0.1.0"
+version = "0.1.1"
 description = "A python package for accelerometer time-series augmentation"
 authors = ["Marc Weitz <marc.weitz@uit.no>",
            "Arundo Analytics, Inc."]
@@ -18,7 +18,7 @@ classifiers = ['Development Status :: 5 - Production/Stable',
                'Topic :: Scientific/Engineering :: Information Analysis',]
 
 [tool.poetry.dependencies]
-python = ">=3.8, <3.11"
+python = "^3.9"
 numpy = "^1.23.5"
 scipy = "^1.9.3"
 
